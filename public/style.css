@@ -1,0 +1,236 @@
+/* Basic Body and Container Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0e6f6;
+    color: #3e3e3e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    overflow: hidden; /* Prevent overflow due to animations */
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Title Animation */
+h1 {
+    color: #e63946;
+    font-size: 2.5em;
+    animation: fadeIn 2s ease-out, bounce 1s ease-in-out infinite;
+}
+
+/* Love Letter Text Animation */
+.love-letter {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #1d3557;
+    font-style: italic;
+    opacity: 0;
+    animation: fadeInLetter 3s ease-out forwards, bounceLetter 1s ease-in-out infinite;
+}
+
+/* Button Styles */
+button {
+    margin-top: 30px;
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #f1faee;
+    color: #e63946;
+    transform: scale(1.1);
+}
+
+/* Animation for Button */
+button:active {
+    transform: scale(1.05);
+}
+
+/* Floating Heart Animation */
+@keyframes heartFloat {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-20px) rotate(20deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) rotate(-20deg);
+        opacity: 0;
+    }
+}
+
+/* Floating Heart Styles */
+#love-heart {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    color: #e63946;
+    animation: heartFloat 4s ease-in-out infinite, pulseHeart 1.5s ease-in-out infinite;
+}
+
+/* Pulsing Heart Animation */
+@keyframes pulseHeart {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Fade-in Effect for Love Letter */
+@keyframes fadeInLetter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade-in Effect for Title */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bounce Animation for Title */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Bounce Animation for Love Letter */
+@keyframes bounceLetter {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Pop-up Nickname Animation */
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(50px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) translateY(-10px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5) translateY(50px);
+    }
+}
+
+/* Pop-up Nickname Style */
+.nickname {
+    position: absolute;
+    font-size: 2em;
+    color: #ff69b4; /* Pinkish color */
+    font-weight: bold;
+    animation: popUp 2s ease-out forwards;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Responsive Design for Small Devices (Phones) */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .love-letter {
+        font-size: 1.2em;
+    }
+
+    .container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    #love-heart {
+        font-size: 2.5em;
+        top: 15%;
+    }
+
+    .nickname {
+        font-size: 1.5em;
+    }
+}
+
+/* Responsive Design for Larger Screens */
+@media (min-width: 1025px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .love-letter {
+        font-size: 1.5em;
+    }
+
+    .container {
+        padding: 40px;
+        max-width: 600px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    #love-heart {
+        font-size: 3em;
+    }
+}
